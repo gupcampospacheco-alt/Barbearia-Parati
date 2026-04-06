@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda do Barbeiro</title>
+  <link rel="stylesheet" href="painel.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Barbearia Parati</h2>
+    <nav>
+      <a href="#">Minha agenda</a>
+      <a href="#" id="btnSair">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo-painel">
+      <div>
+        <h1>Minha Agenda</h1>
+        <p id="barbeiroLogado">Carregando barbeiro...</p>
+      </div>
+    </div>
+
+    <section class="filtros-topo">
+      <div class="filtro-box">
+        <label for="filtroData">Filtrar por dia</label>
+        <input type="date" id="filtroData" class="filtro" />
+      </div>
+
+      <div class="filtro-box">
+        <label for="filtroStatus">Filtrar por status</label>
+        <select id="filtroStatus" class="filtro">
+          <option value="todos">Todos</option>
+          <option value="pendente">Pendentes</option>
+          <option value="atendido">Atendidos</option>
+          <option value="cancelado">Cancelados</option>
+        </select>
+      </div>
+
+      <div class="filtro-box">
+        <label>&nbsp;</label>
+        <button id="btnLimparFiltro" class="btn-limpar">Limpar filtro de data</button>
+      </div>
+    </section>
+
+    <section class="resumo-grid">
+      <div class="resumo-card">
+        <span>Total visível</span>
+        <strong id="resumoHoje">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Pendentes</span>
+        <strong id="resumoPendentes">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Atendidos</span>
+        <strong id="resumoAtendidos">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Cancelados</span>
+        <strong id="resumoCancelados">0</strong>
+      </div>
+    </section>
+
+    <div id="listaAgendamentos" class="lista-agendamentos"></div>
+  </main>
+
+  <script type="module" src="painel.js"></script>
+</body>
+</html>

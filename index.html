@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbearia Parati | Estilo, precisão e atitude</title>
+  <meta name="description" content="Agende seu horário na Barbearia Parati. Cortes modernos, barba, combo e atendimento profissional." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">Barbearia <span>Parati</span></div>
+
+    <nav class="menu">
+      <a href="#inicio">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#agendamento">Agendamento</a>
+      <a href="#contato">Contato</a>
+      <a href="login.html" class="btn-login">Área do Barbeiro</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-texto">
+      <p class="destaque">Visual profissional. Atendimento de verdade.</p>
+      <h1>Seu estilo começa na cadeira certa.</h1>
+      <p>
+        Agende seu corte online, escolha seu barbeiro e tenha uma experiência
+        moderna, rápida e organizada.
+      </p>
+      <div class="hero-botoes">
+        <a href="#agendamento" class="btn-principal">Agendar agora</a>
+        <a href="https://wa.me/5546999999999" target="_blank" class="btn-secundario">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="servicos">
+    <div class="titulo-secao">
+      <p>Nossos serviços</p>
+      <h2>Qualidade em cada detalhe</h2>
+    </div>
+
+    <div class="cards-servicos">
+      <div class="card">
+        <h3>Corte</h3>
+        <p>Corte moderno, social, degradê e acabamento profissional.</p>
+        <span>R$ 35</span>
+      </div>
+
+      <div class="card">
+        <h3>Barba</h3>
+        <p>Modelagem, alinhamento e finalização com toalha quente.</p>
+        <span>R$ 25</span>
+      </div>
+
+      <div class="card">
+        <h3>Combo</h3>
+        <p>Corte + barba com atendimento completo e visual renovado.</p>
+        <span>R$ 55</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao escura" id="equipe">
+    <div class="titulo-secao">
+      <p>Nosso time</p>
+      <h2>Escolha seu barbeiro</h2>
+    </div>
+
+    <div class="cards-equipe">
+      <div class="card-equipe">
+        <div class="foto">JP</div>
+        <h3>João</h3>
+        <p>Especialista em degradê e cortes modernos.</p>
+      </div>
+
+      <div class="card-equipe">
+        <div class="foto">CR</div>
+        <h3>Carlos</h3>
+        <p>Barba, acabamento e estilo clássico.</p>
+      </div>
+
+      <div class="card-equipe">
+        <div class="foto">MT</div>
+        <h3>Mateus</h3>
+        <p>Cortes personalizados e visuais ousados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="galeria">
+    <div class="titulo-secao">
+      <p>Resultados</p>
+      <h2>Cortes que falam por si</h2>
+    </div>
+
+    <div class="galeria-grid">
+      <div class="galeria-item">Corte 1</div>
+      <div class="galeria-item">Corte 2</div>
+      <div class="galeria-item">Corte 3</div>
+      <div class="galeria-item">Corte 4</div>
+    </div>
+  </section>
+
+  <section class="secao escura" id="agendamento">
+    <div class="titulo-secao">
+      <p>Agende online</p>
+      <h2>Marque seu horário</h2>
+    </div>
+
+    <form class="form-agendamento" id="formAgendamento">
+      <input type="text" id="nome" placeholder="Seu nome" />
+      <input type="tel" id="telefone" placeholder="Seu WhatsApp" />
+
+      <select id="servico">
+        <option value="">Escolha o serviço</option>
+        <option value="Corte">Corte</option>
+        <option value="Barba">Barba</option>
+        <option value="Combo">Combo</option>
+      </select>
+
+      <select id="barbeiro">
+        <option value="">Escolha o barbeiro</option>
+        <option value="João">João</option>
+        <option value="Carlos">Carlos</option>
+        <option value="Mateus">Mateus</option>
+      </select>
+
+      <input type="date" id="data" />
+      <input type="time" id="hora" />
+
+      <button type="submit" class="btn-principal">Confirmar agendamento</button>
+    </form>
+
+    <p id="mensagemAgendamento" class="mensagem"></p>
+  </section>
+
+  <section class="secao" id="contato">
+    <div class="titulo-secao">
+      <p>Contato</p>
+      <h2>Fale com a gente</h2>
+    </div>
+
+    <div class="contato-box">
+      <p><strong>Endereço:</strong> Rua Exemplo, 123 - Pato Branco/PR</p>
+      <p><strong>WhatsApp:</strong> (46) 99999-9999</p>
+      <p><strong>Instagram:</strong> @barbeariaparati</p>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <p>© 2026 Barbearia Parati - Todos os direitos reservados.</p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
