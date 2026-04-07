@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Admin Parati</h2>
+    <nav>
+      <a href="#">Todos os agendamentos</a>
+      <a href="#" id="btnSair">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo-painel">
+      <div>
+        <h1>Painel do Dono</h1>
+        <p id="adminLogado">Carregando...</p>
+      </div>
+
+      <select id="filtroBarbeiro" class="filtro">
+        <option value="todos">Todos os barbeiros</option>
+        <option value="João">João</option>
+        <option value="Carlos">Carlos</option>
+        <option value="Mateus">Mateus</option>
+      </select>
+    </div>
+
+    <div id="listaAdmin" class="lista-agendamentos"></div>
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

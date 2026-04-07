@@ -4,7 +4,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getFirestore,
   collection,
-  addDoc
+  addDoc,
+  query,
+  where,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
@@ -19,7 +22,7 @@ const barbeiros = {
   "Mateus": "mateus@barbeariaparati.com"
 };
 
-form.addEventListener("submit", async function (e) {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const nome = document.getElementById("nome").value.trim();
@@ -41,10 +44,28 @@ form.addEventListener("submit", async function (e) {
     return;
   }
 
-  mensagem.textContent = "Salvando agendamento...";
+  mensagem.textContent = "Verificando horário...";
 
   try {
-    await addDoc(collection(db, "agendamentos"), {
+    const agendamentosRef = collection(db, "agendamentos");
+
+    const q = query(
+      agendamentosRef,
+      where("data", "==", data),
+      where("hora", "==", hora),
+      where("barbeiro", "==", barbeiro)
+    );
+
+    const existente = await getDocs(q);
+
+    if (!existente.empty) {
+      mensagem.textContent = "Esse horário já está ocupado.";
+      return;
+    }
+
+    mensagem.textContent = "Salvando agendamento...";
+
+    await addDoc(agendamentosRef, {
       nome,
       telefone,
       servico,
@@ -62,26 +83,4 @@ form.addEventListener("submit", async function (e) {
     console.error("Erro ao salvar agendamento:", error);
     mensagem.textContent = "Erro ao salvar agendamento: " + error.message;
   }
-});import {
-  getFirestore,
-  collection,
-  addDoc,
-  query,
-  where,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const agendamentosRef = collection(db, "agendamentos");
-
-const q = query(
-  agendamentosRef,
-  where("data", "==", data),
-  where("hora", "==", hora),
-  where("barbeiro", "==", barbeiro)
-);
-
-const existente = await getDocs(q);
-
-if (!existente.empty) {
-  mensagem.textContent = "Esse horário já está ocupado.";
-  return;
-}
+});

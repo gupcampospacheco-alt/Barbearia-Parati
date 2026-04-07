@@ -35,7 +35,7 @@ const resumoCancelados = document.getElementById("resumoCancelados");
 
 let agendamentosCache = [];
 
-onAuthStateChanged(auth, async (user) => {
+onAuthStateChanged(auth, (user) => {
   if (!user) {
     window.location.href = "login.html";
     return;
@@ -68,40 +68,44 @@ function carregarAgendaTempoReal(emailBarbeiro) {
   const agendamentosRef = collection(db, "agendamentos");
   const q = query(agendamentosRef, where("emailBarbeiro", "==", emailBarbeiro));
 
-  onSnapshot(q, (snapshot) => {
-    agendamentosCache = [];
+  onSnapshot(
+    q,
+    (snapshot) => {
+      agendamentosCache = [];
 
-    snapshot.forEach((docItem) => {
-      agendamentosCache.push({
-        id: docItem.id,
-        ...docItem.data()
+      snapshot.forEach((docItem) => {
+        agendamentosCache.push({
+          id: docItem.id,
+          ...docItem.data()
+        });
       });
-    });
 
-    renderizarAgendamentos();
-  }, (error) => {
-    console.error("Erro ao carregar agenda:", error);
-    listaAgendamentos.innerHTML = `<p class="vazio">Erro ao carregar agendamentos: ${error.message}</p>`;
-  });
+      renderizarAgendamentos();
+    },
+    (error) => {
+      console.error("Erro ao carregar agenda:", error);
+      listaAgendamentos.innerHTML = `<p class="vazio">Erro ao carregar agendamentos: ${error.message}</p>`;
+    }
+  );
 }
 
 function pegarAgendamentosVisiveis() {
   const hojeISO = hojeEmFormatoISO();
   const dataSelecionada = filtroData.value;
 
-  let lista = agendamentosCache.filter(item => item.data && item.data >= hojeISO);
+  let lista = agendamentosCache.filter((item) => item.data && item.data >= hojeISO);
 
   if (dataSelecionada) {
-    lista = lista.filter(item => item.data === dataSelecionada);
+    lista = lista.filter((item) => item.data === dataSelecionada);
   }
 
   return lista;
 }
 
 function atualizarResumo(listaBase) {
-  const pendentes = listaBase.filter(item => (item.status || "pendente") === "pendente");
-  const atendidos = listaBase.filter(item => item.status === "atendido");
-  const cancelados = listaBase.filter(item => item.status === "cancelado");
+  const pendentes = listaBase.filter((item) => (item.status || "pendente") === "pendente");
+  const atendidos = listaBase.filter((item) => item.status === "atendido");
+  const cancelados = listaBase.filter((item) => item.status === "cancelado");
 
   resumoHoje.textContent = listaBase.length;
   resumoPendentes.textContent = pendentes.length;
@@ -127,7 +131,9 @@ function renderizarAgendamentos() {
   let listaFiltrada = ordenados;
 
   if (filtro !== "todos") {
-    listaFiltrada = ordenados.filter(item => (item.status || "pendente") === filtro);
+    listaFiltrada = ordenados.filter(
+      (item) => (item.status || "pendente") === filtro
+    );
   }
 
   if (listaFiltrada.length === 0) {
@@ -205,17 +211,4 @@ btnSair.addEventListener("click", async (e) => {
   } catch (error) {
     console.error("Erro ao sair:", error);
   }
-});
-function calcularFaturamento(lista) {
-  const valores = {
-    "Corte": 35,
-    "Barba": 25,
-    "Combo": 55
-  };
-
-  return lista.reduce((total, item) => {
-    return total + (valores[item.servico] || 0);
-  }, 0);
-}
-const faturamento = calcularFaturamento(listaBase);
-document.getElementById("resumoFaturamento").textContent = `R$ ${faturamento}`;
+}); 
