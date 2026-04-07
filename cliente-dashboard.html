@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Conta | Barbearia Parati</title>
+  <link rel="stylesheet" href="painel.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Cliente Parati</h2>
+
+    <nav>
+      <a href="#">Meus agendamentos</a>
+      <a href="index.html">Novo agendamento</a>
+      <a href="#" id="btnSair">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo-painel">
+      <div>
+        <h1>Minha Área</h1>
+        <p id="clienteLogado">Carregando cliente...</p>
+      </div>
+    </div>
+
+    <section class="resumo-grid">
+      <div class="resumo-card">
+        <span>Total de agendamentos</span>
+        <strong id="totalCliente">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Próximos horários</span>
+        <strong id="proximosCliente">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Atendidos</span>
+        <strong id="atendidosCliente">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Cancelados</span>
+        <strong id="canceladosCliente">0</strong>
+      </div>
+    </section>
+
+    <section>
+      <div class="topo-painel" style="margin-bottom: 18px;">
+        <div>
+          <h2 style="font-size: 28px;">Meus agendamentos</h2>
+          <p style="color:#bdbdbd;">Aqui você acompanha todos os seus horários marcados</p>
+        </div>
+      </div>
+
+      <div id="listaCliente" class="lista-agendamentos">
+        <p class="vazio">Carregando seus agendamentos...</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="cliente-dashboard.js"></script>
+</body>
+</html>

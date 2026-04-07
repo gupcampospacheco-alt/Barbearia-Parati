@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel Admin</title>
+  <title>Painel Admin | Barbearia Parati</title>
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
   <aside class="sidebar">
     <h2>Admin Parati</h2>
+
     <nav>
-      <a href="#">Todos os agendamentos</a>
+      <a href="#">Dashboard</a>
+      <a href="#listaAdmin">Agendamentos</a>
       <a href="#" id="btnSair">Sair</a>
     </nav>
   </aside>
@@ -19,18 +21,53 @@
     <div class="topo-painel">
       <div>
         <h1>Painel do Dono</h1>
-        <p id="adminLogado">Carregando...</p>
+        <p id="adminLogado">Carregando administrador...</p>
       </div>
 
-      <select id="filtroBarbeiro" class="filtro">
-        <option value="todos">Todos os barbeiros</option>
-        <option value="João">João</option>
-        <option value="Carlos">Carlos</option>
-        <option value="Mateus">Mateus</option>
-      </select>
+      <div>
+        <select id="filtroBarbeiro" class="filtro">
+          <option value="todos">Todos os barbeiros</option>
+          <option value="João">João</option>
+          <option value="Carlos">Carlos</option>
+          <option value="Mateus">Mateus</option>
+        </select>
+      </div>
     </div>
 
-    <div id="listaAdmin" class="lista-agendamentos"></div>
+    <section class="resumo-grid">
+      <div class="resumo-card">
+        <span>Faturamento</span>
+        <strong id="faturamentoAdmin">R$ 0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Total de agendamentos</span>
+        <strong id="totalAgendamentos">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Clientes únicos</span>
+        <strong id="clientesUnicos">0</strong>
+      </div>
+
+      <div class="resumo-card">
+        <span>Hoje</span>
+        <strong id="agendamentosHoje">0</strong>
+      </div>
+    </section>
+
+    <section>
+      <div class="topo-painel" style="margin-bottom: 18px;">
+        <div>
+          <h2 style="font-size: 28px;">Todos os agendamentos</h2>
+          <p style="color:#bdbdbd;">Visualize a agenda completa da barbearia</p>
+        </div>
+      </div>
+
+      <div id="listaAdmin" class="lista-agendamentos">
+        <p class="vazio">Carregando agendamentos...</p>
+      </div>
+    </section>
   </main>
 
   <script type="module" src="admin.js"></script>

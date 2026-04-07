@@ -302,3 +302,17 @@ body {
     font-size: 28px;
   }
 }
+.mensagem.sucesso {
+  color: #3ddc6a;
+}
+
+.mensagem.erro {
+  color: #ff6b7a;
+}
+.mensagem.sucesso {
+  color: #3ddc6a;
+}
+
+.mensagem.erro {
+  color: #ff6b7a;
+}
