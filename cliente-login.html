@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Área do Cliente | Barbearia Parati</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png" />
+  <link rel="stylesheet" href="assets/css/login.css" />
+</head>
+<body>
+  <main class="login-container">
+    <h1>Área do Cliente</h1>
+    <p>Cadastre-se ou entre para acompanhar seus agendamentos.</p>
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" placeholder="Seu e-mail" autocomplete="email" />
+
+    <label for="senha">Senha</label>
+    <input type="password" id="senha" placeholder="Sua senha" autocomplete="current-password" />
+
+    <button id="btnCadastro">Criar conta</button>
+    <button id="btnLogin" class="btn-secundario-login">Entrar</button>
+
+    <p id="msg" class="mensagem-login" aria-live="polite"></p>
+
+    <div class="links-login">
+      <a href="login.html">Sou barbeiro</a>
+      <a href="index.html">Voltar ao site</a>
+    </div>
+  </main>
+
+  <script type="module" src="assets/js/cliente-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Conta | Barbearia Parati</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Cliente Parati</h2>
+    <nav>
+      <a href="#listaCliente">Meus agendamentos</a>
+      <a href="index.html#agendamento">Novo agendamento</a>
+      <a href="#notificacoesCliente">Notificações</a>
+      <a href="#avisosTempoReal">Avisos em tempo real</a>
+      <a href="index.html">Site principal</a>
+      <a href="#" id="btnSair">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo-painel">
+      <div>
+        <h1>Minha Área</h1>
+        <p id="clienteLogado">Carregando cliente...</p>
+      </div>
+    </div>
+
+
+
+    <section id="avisosTempoReal" class="painel-card avisos-gratis-card">
+      <div>
+        <h2>Avisos em tempo real</h2>
+        <p>Enquanto esta página estiver aberta, você recebe o aviso na hora quando o barbeiro confirmar, cancelar ou marcar como atendido.</p>
+        <small>Com o site fechado, o barbeiro pode te avisar pelo WhatsApp usando uma mensagem pronta.</small>
+      </div>
+      <button type="button" id="btnAtivarAvisosTempoReal" class="btn-limpar">Ativar aviso do navegador</button>
+      <p id="statusAvisosTempoReal" class="mensagem-config">Carregando status dos avisos...</p>
+    </section>
+
+    <section class="resumo-grid">
+      <div class="resumo-card"><span>Total</span><strong id="totalCliente">0</strong></div>
+      <div class="resumo-card"><span>Próximos</span><strong id="proximosCliente">0</strong></div>
+      <div class="resumo-card"><span>Confirmados/atendidos</span><strong id="atendidosCliente">0</strong></div>
+      <div class="resumo-card"><span>Cancelados</span><strong id="canceladosCliente">0</strong></div>
+    </section>
+
+    <section id="notificacoesCliente" class="notificacoes-box">
+      <h2>Notificações</h2>
+      <div id="listaNotificacoes"><p class="vazio">Nenhuma notificação no momento.</p></div>
+    </section>
+
+    <section>
+      <div class="topo-painel pequeno">
+        <div>
+          <h2>Meus agendamentos</h2>
+          <p>Acompanhe todos os seus horários marcados.</p>
+        </div>
+      </div>
+
+      <div id="listaCliente" class="lista-agendamentos">
+        <p class="vazio">Carregando seus agendamentos...</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="assets/js/cliente-dashboard.js"></script>
+</body>
+</html>

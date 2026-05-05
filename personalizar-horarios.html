@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personalizar horários | Barbearia Parati</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Barbearia Parati</h2>
+    <nav>
+      <a href="painel-barbeiro.html">Minha agenda</a>
+      <a href="#configAgenda">Personalizar horários</a>
+      <a href="index.html">Site principal</a>
+      <a href="#" id="btnSair">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo-painel">
+      <div>
+        <h1>Personalizar horários</h1>
+        <p id="barbeiroLogado">Carregando barbeiro...</p>
+      </div>
+
+      <a href="painel-barbeiro.html" class="btn-limpar botao-link">Voltar para agenda</a>
+    </div>
+
+    <section id="configAgenda" class="painel-card config-agenda">
+      <div class="topo-painel pequeno">
+        <div>
+          <h2>Configurar meus horários</h2>
+          <p>O que você salvar aqui aparece no agendamento do site para os clientes.</p>
+        </div>
+      </div>
+
+      <form id="formConfigAgenda" class="form-config">
+        <div class="filtro-box">
+          <label for="agendaNome">Nome que aparece para o cliente</label>
+          <input type="text" id="agendaNome" class="filtro" placeholder="Ex: João" required />
+        </div>
+
+        <div class="filtro-box">
+          <label for="horaInicio">Início do atendimento</label>
+          <input type="time" id="horaInicio" class="filtro" required />
+        </div>
+
+        <div class="filtro-box">
+          <label for="horaFim">Fim do atendimento</label>
+          <input type="time" id="horaFim" class="filtro" required />
+        </div>
+
+        <div class="filtro-box">
+          <label for="intervaloMinutos">Intervalo entre horários</label>
+          <select id="intervaloMinutos" class="filtro" required>
+            <option value="30">30 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="60">1 hora</option>
+            <option value="90">1h30</option>
+          </select>
+        </div>
+
+        <div class="filtro-box campo-largo">
+          <label for="bloqueiosAgenda">Horários bloqueados/pausas</label>
+          <textarea id="bloqueiosAgenda" class="filtro textarea" rows="3" placeholder="Ex: 12:00, 15:30"></textarea>
+          <small>Separe por vírgula, espaço ou linha. Exemplo: 12:00, 15:30.</small>
+        </div>
+
+        <div class="campo-largo">
+          <label class="label-checks">Dias que não atende</label>
+          <div class="checks-dias">
+            <label><input type="checkbox" name="diasFechados" value="0" /> Dom</label>
+            <label><input type="checkbox" name="diasFechados" value="1" /> Seg</label>
+            <label><input type="checkbox" name="diasFechados" value="2" /> Ter</label>
+            <label><input type="checkbox" name="diasFechados" value="3" /> Qua</label>
+            <label><input type="checkbox" name="diasFechados" value="4" /> Qui</label>
+            <label><input type="checkbox" name="diasFechados" value="5" /> Sex</label>
+            <label><input type="checkbox" name="diasFechados" value="6" /> Sáb</label>
+          </div>
+        </div>
+
+        <div class="card-acoes campo-largo">
+          <button type="submit" class="btn-acao btn-pendente">Salvar horários</button>
+          <button type="button" id="btnUsarPadrao" class="btn-acao btn-atendido">Usar padrão</button>
+        </div>
+      </form>
+
+      <p id="mensagemConfigAgenda" class="vazio mensagem-config" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script type="module" src="assets/js/personalizar-horarios.js"></script>
+</body>
+</html>

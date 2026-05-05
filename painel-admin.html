@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel do Dono | Barbearia Parati</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#111111" />
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>Admin Parati</h2>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#listaAdmin">Agendamentos</a>
+      <a href="index.html">Site principal</a>
+      <a href="#" id="btnSair">Sair</a>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <div class="topo-painel" id="dashboard">
+      <div>
+        <h1>Painel do Dono</h1>
+        <p id="adminLogado">Carregando administrador...</p>
+      </div>
+
+      <div class="filtro-box filtro-admin">
+        <label for="filtroBarbeiro">Barbeiro</label>
+        <select id="filtroBarbeiro" class="filtro">
+          <option value="todos">Todos os barbeiros</option>
+          <option value="João">João</option>
+          <option value="Carlos">Carlos</option>
+          <option value="Mateus">Mateus</option>
+        </select>
+      </div>
+    </div>
+
+    <section class="resumo-grid">
+      <div class="resumo-card"><span>Faturamento</span><strong id="faturamentoAdmin">R$ 0</strong></div>
+      <div class="resumo-card"><span>Total</span><strong id="totalAgendamentos">0</strong></div>
+      <div class="resumo-card"><span>Clientes únicos</span><strong id="clientesUnicos">0</strong></div>
+      <div class="resumo-card"><span>Hoje</span><strong id="agendamentosHoje">0</strong></div>
+    </section>
+
+    <section>
+      <div class="topo-painel pequeno">
+        <div>
+          <h2>Todos os agendamentos</h2>
+          <p>Visualize a agenda completa da barbearia.</p>
+        </div>
+      </div>
+
+      <div id="listaAdmin" class="lista-agendamentos">
+        <p class="vazio">Carregando agendamentos...</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="assets/js/painel-admin.js"></script>
+</body>
+</html>
